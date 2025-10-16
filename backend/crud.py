@@ -5,7 +5,7 @@ from . import models,schemas
 def get_users(db: Session):
     return db.query(models.User).all()
 
-def get_user(db: Session, user_id: int):
+def get_user_by_id(db: Session, user_id: int):
     return db.query(models.User).filter(models.User.id == user_id).first()
 
 def get_user_by_name(db: Session, name: str):
@@ -24,7 +24,7 @@ def create_user(db: Session, user:schemas.UserCreate):
 def get_sales(db: Session):
     return db.query(models.Sales).all()
 
-def get_user_by_name(db: Session, year: int):
+def get_sales_by_year(db: Session, year: int):
     return db.query(models.Sales).filter(models.Sales.year == year).first()
 
 def create_sales(db: Session, sales:schemas.SalesCreate):
