@@ -20,3 +20,16 @@ def create_user(db: Session, user:schemas.UserCreate):
     db.commit()
     db.refresh(db_user)
     return db_user
+
+def get_sales(db: Session):
+    return db.query(models.Sales).all()
+
+def get_user_by_name(db: Session, year: int):
+    return db.query(models.Sales).filter(models.Sales.year == year).first()
+
+def create_sales(db: Session, sales:schemas.SalesCreate):
+    db_sales = models.User(year = sales.year, department = sales.department, sales = sales.sales)
+    db.add(db_sales)
+    db.commit()
+    db.refresh(db_sales)
+    return db_sales
