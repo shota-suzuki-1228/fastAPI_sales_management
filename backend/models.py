@@ -16,4 +16,4 @@ class Sales(Base):
 
     year = Column(Integer, primary_key=True, index=True)
     department = Column(String, primary_key=True, index=True)
-    sales = Column(float)
+    sales = Column(Float)

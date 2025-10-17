@@ -28,7 +28,7 @@ def get_sales_by_year(db: Session, year: int):
     return db.query(models.Sales).filter(models.Sales.year == year).first()
 
 def create_sales(db: Session, sales:schemas.SalesCreate):
-    db_sales = models.User(year = sales.year, department = sales.department, sales = sales.sales)
+    db_sales = models.Sales(year = sales.year, department = sales.department, sales = sales.sales)
     db.add(db_sales)
     db.commit()
     db.refresh(db_sales)
